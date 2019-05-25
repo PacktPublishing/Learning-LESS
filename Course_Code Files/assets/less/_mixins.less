@@ -1,0 +1,21 @@
+// MIXINS ****************************
+
+.transition(@time: 0.2s, @ease: ease-in-out, @prop: all) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+
+.box-shadow(@x, @y, @blur, @color) {
+    -webkit-box-shadow: @x @y @blur @color;
+    -moz-box-shadow: @x @y @blur @color;
+    box-shadow: @x @y @blur @color;
+}
+
+.rounded(@r) {
+    -webkit-border-radius: ~"@{r}rem";
+    -moz-border-radius: ~"@{r}rem";
+    border-radius: ~"@{r}rem";
+}

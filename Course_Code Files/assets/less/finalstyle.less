@@ -1,0 +1,275 @@
+// IMPORTS ****************************
+
+@import "_vars.less";
+@import "_mixins.less";
+
+// STYLES ****************************
+
+html {
+    /*background-image: svg-gradient(to bottom, #eee, tint(@main-color, 20%) 20%, shade(#eee));*/
+}
+
+body {
+    color: @grey-color;
+    h1 {
+        color: @brand-color;
+        font-size: @body-font-size * 2;
+        border-bottom: 1px solid darken(@brand-color, 30%);
+        font-weight: bold;
+    }
+    span {
+        font-style: italic;
+    }
+    .highlight {
+        .rounded(@body-font-size / 80); // 0.2rem
+    }
+}
+
+.message {
+    width: auto;
+    background-color: 58,190,135;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    text-align: center;
+    span {
+        font-weight: bold;
+    }
+}
+
+.message-@{error} {
+    &:extend(.message all);
+    color: #333;
+    background-color: rgba(200,53,47, 0.2);
+    border: 1px solid rgba(200,53,47, 0.9);
+}
+
+.message-@{ok} {
+    &:extend(.message all);
+    color: @success;
+    background-color: fade(@success,20%);
+    border: 1px solid desaturate(@success, 5%);
+    img {
+        height: 1rem;
+        position: relative;
+        top: 2px;
+    }
+}
+
+.message-icon-@{ok} {
+    stroke: @success;
+    margin-right: image-width("../images/circle-ok.svg") / 2;
+}
+
+.message-@{warning} {
+    &:extend(.message all);
+    color: #333;
+    background-color: rgba(244,195,68, 0.2);
+    border: 1px solid rgba(244,195,68, 0.9);
+}
+
+
+
+
+
+
+
+
+.colourbox {
+    padding: 1rem;
+    margin-bottom: 9rem;
+    line-height: 4;
+}
+
+.yellow {
+    &:extend(.colourbox);
+    background-color: #ffCC00;
+}
+
+.red {
+    &:extend(.colourbox);
+    background-color: @red;
+    color: black;
+}
+
+.result {
+    &:extend(.colourbox);
+    background-color: mix(@yellow, @red, 85%);
+}
+
+
+
+
+
+
+
+
+
+.tintResult {
+    &:extend(.colourbox);
+    background-color: tint(@red, 40%);
+}
+
+.shadeResult {
+    &:extend(.colourbox);
+    background-color: shade(@red, 75%);
+}
+
+
+
+
+
+
+
+
+
+
+.greyResult {
+    &:extend(.colourbox);
+    background-color: greyscale(@red);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contrastResult {
+    &:extend(.colourbox);
+    background-color: @red;
+    color: contrast(@red, darken(@red, 40%), lighten(@red, 40%), 20%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// palettes
+
+.palette {
+    height: 8rem;
+    width: 20rem;
+}
+
+.paletteName {
+    font-size: 2rem;
+    line-height: 4;
+    font-weight: bold;
+    padding-left: 22rem;
+}
+
+.mainColour {
+    &:extend(.palette);
+    background-color: @main-color;
+}
+.secondaryColour {
+    &:extend(.palette);
+    background-color: lighten(@main-color, 20%);
+}
+.tertiaryColour {
+    &:extend(.palette);
+    background-color: darken(@main-color, 30%);
+}
+.quaternaryColour {
+    &:extend(.palette);
+    background-color: spin(@main-color, 50%);
+}
+.quinaryColour {
+    &:extend(.palette);
+    background-color: desaturate(spin(@main-color, 50%), 50%);
+}
+
+
+
+
+
+
+// LESS + CSS
+html {
+    background-color: #eee;
+}
+.wrap {
+    width: 35em;
+    margin: 0 auto;
+}
+
+.container {
+    .box-shadow(0, 1rem, 2rem, #bbb);
+    background-color: #fff;
+    margin-bottom: 3em;
+
+    h1 {
+        padding: 0 1rem;
+        color: @main-color;
+    }
+
+    p {
+        padding: 0 1rem 1rem;
+        margin: 0;
+        list-style: 1.4;
+        font-size: 0.8em;
+    }
+}
+
+.container__read-more a {
+    color: @main-color;
+    font-size: 0.7rem;
+}
+
+.taglist {
+    border-top: 1px solid @main-color;
+    margin: 0;
+    padding: 0.7rem 1rem 1rem;
+    @media (max-width: 320px) {
+        padding: 1rem;
+    }
+
+}
+.taglist__tag {
+    display: inline;
+    background-color: @main-color;
+    font-size: 0.5rem;
+    padding: 0.4rem 0.4rem 0.3rem;
+    border-radius: 0.3rem;
+    margin-right: 0.2rem;
+    color: white;
+    @media (max-width: 320px) {
+        display: block;
+        width: 100%;
+        color: #000;
+        background-color: #000;}
+}
+
+.taglist__tag a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+        color: @main-color;
+    }
+}
+
+.taglist__tag a:hover {
+    color: @main-color;
+}
+
+.taglist__tag:hover {
+    background-color: #69b0d0;
+    .transition(0.5s, linear, background-color);
+}
